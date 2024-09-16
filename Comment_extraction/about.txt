@@ -1,0 +1,1 @@
+This is a folder that contains the code to extract comments from a Youtube video.
