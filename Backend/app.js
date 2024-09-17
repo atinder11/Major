@@ -1,17 +1,17 @@
-require("dotenv").config();
+require("dotenv").config(); // Make sure this line is at the top
 const express = require("express");
 const app = express();
 const cors = require("cors");
-require("./db/conn")
+require("./db/conn");
 const PORT = 6005;
 const session = require("express-session");
 const passport = require("passport");
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
-const userdb = require("./model/userSchema")
+const userdb = require("./model/userSchema");
 
-const clientid = "689712312832-0vhjv3cev1sngkpunv6patun13k311nk.apps.googleusercontent.com"
-const clientsecret = "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"
-
+// Use environment variables
+const clientid = process.env.GOOGLE_CLIENT_ID;
+const clientsecret = process.env.GOOGLE_CLIENT_SECRET;
 
 app.use(cors({
     origin:"http://localhost:5173",
