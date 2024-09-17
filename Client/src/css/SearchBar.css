@@ -1,0 +1,26 @@
+body {
+  background: #d1d5db;
+  margin: 0; /* Remove default body margin */
+  height: 100vh; /* Ensure body takes full height */
+}
+
+.height {
+  height: 50vh;
+}
+
+.container {
+  padding: 0; /* Remove default container padding */
+}
+
+.input-group {
+  max-width: 100%; /* Ensure input group does not exceed container width */
+}
+
+.search-input {
+  height: 50px; /* Slightly smaller height */
+  font-size: 0.9em; /* Adjust font size */
+}
+
+.btn {
+  height: 50px; /* Match button height with input */
+}
