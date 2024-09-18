@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import Navbar from "./Navbar";
 
 const Signup = () => {
@@ -43,14 +43,24 @@ const Signup = () => {
               Sign Up
             </button>
             {showMessage && (
-              <p className="text-green-500 mt-2 text-center">Registration Successful</p>
+              <p className="text-green-500 mt-2 text-center">
+                Registration Successful
+              </p>
             )}
           </form>
+          
+          {/* OR separator */}
+          <div className="flex items-center justify-center my-4">
+            <span className="border-t w-1/4 border-gray-300"></span>
+            <span className="px-4 text-gray-500 font-semibold">OR</span>
+            <span className="border-t w-1/4 border-gray-300"></span>
+          </div>
+
           <button
-            className="w-full mt-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-all duration-300 flex items-center justify-center space-x-2"
+            className="w-full py-2 bg-white border border-gray-300 text-black font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 flex items-center justify-center space-x-2"
             onClick={signupWithGoogle}
           >
-            <FaGoogle className="text-xl" />
+            <FcGoogle className="text-xl" />
             <span>Sign In With Google</span>
           </button>
         </div>
