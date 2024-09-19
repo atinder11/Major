@@ -19,7 +19,7 @@ const Navbar = () => {
           <div className="text-2xl flex items-center gap-2 font-bold">
             <MdComputer className="text-3xl text-secondary" />
             <p>
-              Sentiment
+            Opinion
               <br /> Analysis
             </p>
           </div>

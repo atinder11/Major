@@ -22,15 +22,15 @@ const Footer = () => {
               <div className="text-2xl flex items-center gap-2 font-bold uppercase">
                 <MdComputer className="text-secondary text-4xl" />
                 <p className="">
-                  Sentiment
+                  Opinion
                   <br /> Analysis
                 </p>
               </div>
               <p>
-                Sentiment analysis uses natural language processing to identify
-                and categorize emotions in text, such as positive, negative, or
-                neutral. It helps businesses gauge customer opinions and improve
-                decision-making based on emotional insights.
+                Opinion analysis uses natural language processing to evaluate
+                and classify themes in text, identifying underlying topics and
+                sentiments. It helps businesses uncover key insights from
+                customer feedback, guiding decision-making and strategy.
               </p>
               <div className="flex items-center justify-start gap-5 !mt-6">
                 <a href="#" className="hover:text-secondary duration-200">

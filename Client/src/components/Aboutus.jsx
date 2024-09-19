@@ -7,18 +7,18 @@ const Aboutus = () => {
     {
       image: SentimentImg1,
       tag: "ANALYZE WITH PRECISION",
-      title: "Real-time Sentiment Analysis Tool",
+      title: "Real-time Opinion Analysis Tool",
       subtitle:
-        "Our Sentiment Analysis tool provides accurate insights into text data by evaluating the tone, attitude, and emotions expressed. Whether you're analyzing customer reviews or social media feedback, our tool helps you gauge public opinion effortlessly.",
+        "Our Opinion Analysis tool provides accurate insights into text data by evaluating the tone, attitude, and emotions expressed. Whether you're analyzing customer reviews or social media feedback, our tool helps you gauge public opinion effortlessly.",
       link: "#",
       reverse: false, // First section normal
     },
     {
       image: SentimentImg2,
-      tag: "UNDERSTAND EMOTIONS",
+      tag: "UNDERSTAND Opinion ",
       title: "Unlock Hidden Insights from Text Data",
       subtitle:
-        "Harness the power of machine learning and natural language processing (NLP) to analyze text sentiment. Our project offers a scalable solution to interpret positive, negative, and neutral sentiments from various data sources like product reviews, surveys, and more.",
+        "Harness the power of machine learning and natural language processing (NLP) to analyze text sentiment. Our project offers a scalable solution to interpret positive, negative, and neutral Opinion from various data sources like product reviews, surveys, and more.",
       link: "#",
       reverse: true, // Second section reversed
     },

@@ -26,7 +26,7 @@ const Hero = () => {
               className="text-5xl font-semibold lg:text-6xl !leading-tight"
             >
               Find Your Audience <br/>
-              <span className="text-primary">Sentiment</span>
+              <span className="text-primary">Opinion</span>
             </motion.h1>
             <motion.p
               variants={SlideRight(0.8)}
@@ -34,7 +34,7 @@ const Hero = () => {
               animate="visible"
             >
               We help Our Advance AI Model 
-              You can find the sentiment of your Audience
+              You can find the Opinion of your Audience
             </motion.p>
             {/* button section */}
             <motion.div
