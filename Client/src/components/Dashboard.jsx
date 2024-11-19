@@ -2,6 +2,7 @@ import React from "react";
 import Headers from "./Header";
 import SearchBar from "./SearchBar";
 import Footer from "./Footer";
+import Card from "./Card";
 
 const Dashboard = () => {
   return (
@@ -19,6 +20,7 @@ const Dashboard = () => {
       <br />
 
       <SearchBar />
+      <Card/>
 
       <br />
       <br />
