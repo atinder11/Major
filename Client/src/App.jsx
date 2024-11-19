@@ -16,6 +16,12 @@ import Footer from "./components/Footer";
 
 import { Routes, Route } from "react-router-dom";
 import Card from "./components/Card";
+import YoutubeAnalysis from "./pages/YoutubeAnalysis";
+import AmazonAnalsis from "./pages/AmazonAnalsis";
+
+
+
+import { Link } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -43,6 +49,8 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/card" element={<Card />} />
+        <Route path="/youtube" element={<YoutubeAnalysis />} />
+        <Route path="/amazon" element={<AmazonAnalsis />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </>

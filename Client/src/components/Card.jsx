@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Card() {
   return (
@@ -10,7 +11,7 @@ function Card() {
               <img
                 src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
                 className="w-full h-full object-cover rounded-t-md"
-                alt="omnichannel"
+                alt="Youtube"
               />
             </div>
             <div className="p-6">
@@ -19,7 +20,7 @@ function Card() {
               Interpreting user sentiments in YouTube comments to understand audience opinions and engagement trends.
                 
               </p>
-              <a href="" className="mt-2 inline-flex text-secondary font-bold ">Check Now →</a>
+              <Link to="/youtube" className="mt-2 inline-flex text-secondary font-bold ">Check Now →</Link>
             </div>
           </div>
           <div className="flex flex-col rounded-md border border-slate-200">
@@ -27,7 +28,7 @@ function Card() {
               <img
                 src="https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png"
                 className="w-full h-full object-cover rounded-t-md"
-                alt="live-chat"
+                alt="Amazon"
               />
             </div>
             <div className="p-6">
@@ -35,7 +36,7 @@ function Card() {
               <p className="mt-2 text-slate-500">
               Focused on analyzing customer sentiments in Amazon reviews to derive insights about product feedback and customer satisfaction.
               </p>
-              <a href="" className="mt-2 inline-flex text-secondary font-bold">Check Now →</a>
+              <Link to="/amazon" className="mt-2 inline-flex text-secondary font-bold">Check Now →</Link>
             </div>
           </div>
         </div>
