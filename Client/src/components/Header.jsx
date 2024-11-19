@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import "../css/Header.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Header = () => {
   const [userdata, setUserdata] = useState({});
-  console.log("response", userdata);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const getUser = async () => {
     try {
@@ -24,6 +25,11 @@ const Header = () => {
     window.open("http://localhost:6005/logout", "_self");
   };
 
+  // Function to navigate to the previous page
+  const handleBackClick = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
   useEffect(() => {
     getUser();
   }, []);
@@ -33,23 +39,22 @@ const Header = () => {
       <header>
         <nav>
           <div className="left">
-          <h1 className="text-3xl font-bold">
-  Hi <span className="text-[#ffcf3a] text-4xl">{userdata?.displayName}</span>
-</h1>
+            <h1 className="text-3xl font-bold">
+              Hi{" "}
+              <span className="text-[#ffcf3a] text-4xl">
+                {userdata?.displayName}
+              </span>
+            </h1>
           </div>
           <div className="right">
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <button onClick={handleBackClick} >
+                  Back
+                </button>
               </li>
               {Object.keys(userdata).length > 0 ? (
                 <>
-                  {/*
-                  <li style={{ color: "black", fontWeight: "bold" }}>
-                    {userdata?.displayName}
-                  </li>
-                  */}
-
                   <li>
                     <NavLink to="/dashboard">Dashboard</NavLink>
                   </li>
@@ -58,7 +63,7 @@ const Header = () => {
                     <img
                       src={userdata?.image}
                       style={{ width: "50px", borderRadius: "50%" }}
-                      alt=""
+                      alt="User"
                     />
                   </li>
                 </>
@@ -68,6 +73,7 @@ const Header = () => {
                 </li>
               )}
             </ul>
+            {/* Back button */}
           </div>
         </nav>
       </header>
