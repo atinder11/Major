@@ -83,12 +83,12 @@ def scrape_amazon_reviews(product_url):
         time.sleep(3)
 
         email_field = browser.find_element(By.ID, "ap_email")
-        email_field.send_keys("prajwal26dec02@gmail.com")
+        email_field.send_keys("myemail@abc.com")
         email_field.send_keys(Keys.RETURN)
         time.sleep(3)
 
         password_field = browser.find_element(By.ID, "ap_password")
-        password_field.send_keys("mainnahibataunga")
+        password_field.send_keys("mypassword")
         password_field.send_keys(Keys.RETURN)
         time.sleep(5)
 
