@@ -19,7 +19,7 @@ const Navbar = () => {
           <div className="text-2xl flex items-center gap-2 font-bold">
             <MdComputer className="text-3xl text-secondary" />
             <p>
-            Opinion
+              Opinion
               <br /> Analysis
             </p>
           </div>
@@ -49,12 +49,13 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="font-semibold hover:text-gray-400"
             >
-              Sign in
+              <button className="btn">Sign in</button>
             </a>
             <Link to="/login">
-              <button className="text-white bg-secondary font-semibold rounded-full px-6 py-2">
-                Register
-              </button>
+            <button className="btn text-white bg-secondary font-semibold rounded-full px-6 py-2 transition-transform duration-300 hover:scale-105 hover:bg-secondary">
+  Register
+</button>
+
             </Link>
           </div>
           {/* Mobile Hamburger Menu */}

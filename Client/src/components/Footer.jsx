@@ -116,14 +116,11 @@ const Footer = () => {
             </div>
           </div>
           {/* copyright section  */}
-          <div className="mt-8">
-            <div className="text-center py-6 border-t-2 border-gray-800/10">
-              <span className="text-sm text-black/60">
-                {" "}
-                @copyright 2024 Opinion Analysis 
-              </span>
-            </div>
-          </div>
+          <footer className="footer footer-center border-gray-300/10 text-base-content p-4">
+  <aside>
+    <p>Copyright © {new Date().getFullYear()} - All right reserved by Opinion analysis</p>
+  </aside>
+</footer>
         </div>
       </div>
     </div>

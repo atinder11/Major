@@ -22,6 +22,7 @@ import AmazonAnalsis from "./pages/AmazonAnalsis";
 
 
 import { Link } from 'react-router-dom';
+import SellerDashboard from "./pages/SellerDashboard";
 
 const App = () => {
   return (
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/card" element={<Card />} />
         <Route path="/youtube" element={<YoutubeAnalysis />} />
         <Route path="/amazon" element={<AmazonAnalsis />} />
+        <Route path="/seller" element={<SellerDashboard />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </>
