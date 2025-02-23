@@ -2,6 +2,7 @@ import React from 'react';
 import { Line, Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, BarElement } from 'chart.js';
 import "daisyui";
+import Dashboard from '../components/Dashboard';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, BarElement);
 
@@ -50,6 +51,7 @@ const productSalesData = {
     },
   ],
 };
+<Dashboard/>
 
 function AmazonSellerDashboard() {
   return (

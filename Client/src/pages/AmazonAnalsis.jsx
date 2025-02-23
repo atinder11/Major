@@ -19,6 +19,11 @@ function AmazonAnalsis() {
         <SearchBar/>
 
         <br />
+        <div className="flex justify-center">
+  <a href="./seller" target="_blank" rel="noopener noreferrer">
+    <button className="btn btn-primary">Go to dashboard</button>
+  </a>
+</div>
       <br />
       <br />
 

@@ -20,6 +20,7 @@ function YoutubeAnalysis() {
     <SearchBar/>
 
     <br />
+    <button className="btn btn-success">Go to dashboard</button>
       <br />
       <br />
     <Footer/>
