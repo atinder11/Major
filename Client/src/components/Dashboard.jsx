@@ -11,9 +11,9 @@ const Dashboard = () => {
       <br />
       <br/>
       <h1 className="text-center font-bold text-[#080808] text-4xl">
-        Welcome Back To
+        Welcome Back To 
         <span className="text-center font-bold text-[#ffcf3a] text-4xl">
-          Dashboard
+           Dashboard
         </span>
       </h1>
 

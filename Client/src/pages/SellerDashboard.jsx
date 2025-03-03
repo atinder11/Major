@@ -47,7 +47,7 @@ const productSalesData = {
     {
       label: "Revenue ($)",
       data: [45000, 36000, 27000],
-      backgroundColor: "#ffa500",
+      backgroundColor: "#0063ff",
     },
   ],
 };
@@ -119,8 +119,8 @@ function AmazonSellerDashboard() {
 
       <div className="card bg-white shadow-xl p-6 mt-6 w-full flex flex-col sm:flex-row justify-between items-center rounded-xl">
         <div className="flex gap-4">
-          <button className="btn bg-[#ffcf3a] text-black font-medium px-4 py-2 rounded-lg">Feedback</button>
-          <button className="btn bg-[#ffcf3a] text-black font-medium px-4 py-2 rounded-lg">Export CSV</button>
+          <button className="btn bg-[#0063ff] text-black font-medium px-4 py-2 rounded-lg">Feedback</button>
+          <button className="btn bg-[#0063ff] text-black font-medium px-4 py-2 rounded-lg">Export CSV</button>
         </div>
       </div>
     </div>

@@ -19,6 +19,8 @@ import Card from "./components/Card";
 import YoutubeAnalysis from "./pages/YoutubeAnalysis";
 import AmazonAnalsis from "./pages/AmazonAnalsis";
 
+import Faq from "./components/Faq";
+
 
 
 import { Link } from 'react-router-dom';
@@ -36,6 +38,7 @@ const App = () => {
               <Hero />
               <Count />
               <Aboutus />
+              <Faq/>
               <Footer />
             </>
           }
@@ -45,6 +48,8 @@ const App = () => {
         <Route path="/header" element={<Header />} />
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/ourteam" element={<OurTeam />} />
+        <Route path="/faq" element={<Faq />} />
+        
 
         <Route path="/footer" element={<Footer />} />
         <Route path="/dashboard" element={<Dashboard />} />
