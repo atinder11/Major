@@ -45,7 +45,7 @@ This project, "Comments and Reviews Analyzer", aims to provide an automated syst
 Clone the project
 
 ```bash
-  git clone https://github.com/Dhruv-Singhal-15/SkillSprint.git
+  git clone https://github.com/atinder11/major.git
 ```
 
 Install dependencies in the respective directories
