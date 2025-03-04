@@ -12,7 +12,7 @@ function AmazonAnalsis() {
       <br />
       <div className="mt-4 flex justify-center">
   <h1 className="text-2xl flex items-center gap-2 font-bold">
-    Enter The Product Link:
+    Enter The Seller ID:
   </h1>
 </div>
       <br />
