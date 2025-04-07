@@ -1,0 +1,1 @@
+".env\n.env.*\nnode_modules\n/build\n/dist\n*.log\n.DS_Store\n.vscode\n.idea" 
