@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Line, Bar, Scatter } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -15,6 +15,7 @@ import "daisyui";
 import Dashboard from "../components/Dashboard";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import ReactMarkdown from "react-markdown";
 
 ChartJS.register(
   LineElement,
@@ -27,51 +28,6 @@ ChartJS.register(
   Title
 );
 
-// const bestProducts = [
-//   "Echo Dot - Smart speaker with Alexa",
-//   "Fire Stick - Streaming device with voice control",
-//   "Kindle Paperwhite - Waterproof e-reader",
-// ];
-
-// const worstProducts = [
-//   "Old Gen Bluetooth Speaker - Low battery life",
-//   "Basic VR Headset - Poor resolution and tracking",
-//   "Generic Smartwatch - Limited functionality",
-// ];
-
-// const userEngagement = [
-//   { date: "Jan", reviews: 30 },
-//   { date: "Feb", reviews: 45 },
-//   { date: "Mar", reviews: 60 },
-// ];
-
-// const salesData = {
-//   labels: ["Jan", "Feb", "Mar", "Apr", "May"],
-//   datasets: [
-//     {
-//       label: "Total Sales",
-//       data: [5000, 7000, 8500, 9000, 10000],
-//       borderColor: "#ffcf3a",
-//       backgroundColor: "rgba(255, 207, 58, 0.2)",
-//     },
-//   ],
-// };
-
-// const productSalesData = {
-//   labels: ["Echo Dot", "Fire Stick", "Kindle Paperwhite"],
-//   datasets: [
-//     {
-//       label: "Sales (Units)",
-//       data: [1500, 1200, 900],
-//       backgroundColor: "#ffcf3a",
-//     },
-//     {
-//       label: "Revenue ($)",
-//       data: [45000, 36000, 27000],
-//       backgroundColor: "#0063ff",
-//     },
-//   ],
-// };
 <Dashboard />;
 
 function AmazonSellerDashboard() {
@@ -92,6 +48,7 @@ function AmazonSellerDashboard() {
   const [selectedProduct, setSelectedProduct] = useState("");
   const [sentimentTrend, setSentimentTrend] = useState(null);
   const [userEngagement, setUserEngagement] = useState([]);
+  const [suggestion, setSuggestion] = useState("");
 
   const handleExportPDF = () => {
     window.print();
@@ -173,6 +130,7 @@ function AmazonSellerDashboard() {
       console.log("Received product details:", response.data);
       setSentimentTrend(response.data.sentiment_trend);
       setUserEngagement(response.data.user_engagement);
+      setSuggestion(response.data.gemini_suggestions);
     } catch (error) {
       console.error("Error sending product link:", error);
     }
@@ -241,7 +199,7 @@ function AmazonSellerDashboard() {
 
         <div className="card bg-white shadow-xl p-6 w-full rounded-xl overflow-x-auto">
           <h2 className="text-xl font-semibold text-gray-800">
-            Sales & Profit Overview
+            Rating vs Scales
           </h2>
           <Scatter data={scatterChartData} options={scatterChartOptions} />
         </div>
@@ -349,6 +307,12 @@ function AmazonSellerDashboard() {
         </ul>
       </div>
 
+      <div className="mt-6">
+        <h2 className="text-xl font-semibold text-gray-800">Suggestions</h2>
+        <p className="text-gray-700 mt-2">
+          <ReactMarkdown>{suggestion}</ReactMarkdown>
+        </p>
+      </div>
       <div className="card bg-white shadow-xl p-6 mt-6 w-full flex flex-col sm:flex-row justify-between items-center rounded-xl">
         <div className="flex gap-4">
           <button className="btn bg-[#0063ff] text-black font-medium px-4 py-2 rounded-lg">

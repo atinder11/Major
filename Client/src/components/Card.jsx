@@ -63,7 +63,7 @@ function Card() {
         <div className="card card-compact bg-base-100 w-full shadow-xl border border-slate-200">
           <figure>
             <img
-              src="https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png"
+              src="https://www.justinmind.com/wp-content/uploads/2018/12/6-best-practices-for-Dashboard-Design-Justinmind-header.png"
               alt="Amazon"
               className="w-full h-full object-cover"
             />

@@ -21,11 +21,16 @@ import time
 import re
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from google import genai
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 CORS(app)
 
-API_KEY = 'AIzaSyAuXxhJNuRMb2DzPMpf-qNUiT_0uobOrrY'
+API_KEY = os.getenv('YOUTUBE_API_KEY')
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 ps = PorterStemmer()
@@ -41,6 +46,12 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36")
 
 analyzer = SentimentIntensityAnalyzer()
+
+client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'))
+
+def analyze_with_gemini(products):
+    response = client.models.generate_content(model="gemini-2.0-flash", contents=f"Given are the scrapped reviews of a product. Give suggestions to how can the product be improved and the sales be increased:\n{products}\n Directly start it with points. There should be two headings, Problem Identification & Prioritization, and Recommended Improvements & Solutions, with 4-5 bullet points each, briefly giving the answer. No tables should be given. Give numbering to main headings(i.e., Problem Identification & Prioritization, and Recommended Improvements & Solutions) and bullet symbols to subheadings.")
+    return response.text
 
 def vader_sentiment_analysis(row):
     text = str(row['Comment'])
@@ -121,12 +132,12 @@ def scrape_amazon_reviews(product_url):
         time.sleep(3)
 
         email_field = browser.find_element(By.ID, "ap_email")
-        email_field.send_keys("myemail@abc.com")
+        email_field.send_keys(os.getenv('AMAZON_EMAIL'))
         email_field.send_keys(Keys.RETURN)
         time.sleep(3)
 
         password_field = browser.find_element(By.ID, "ap_password")
-        password_field.send_keys("mypassword")
+        password_field.send_keys(os.getenv('AMAZON_PASSWORD'))
         password_field.send_keys(Keys.RETURN)
         time.sleep(5)
 
@@ -163,11 +174,11 @@ def scrape_product_reviews(product_link):
         time.sleep(3)
         if "ap_email_login" in browser.page_source:
             email_field = browser.find_element(By.ID, "ap_email_login")
-            email_field.send_keys("myemail@abc.com")
+            email_field.send_keys(os.getenv('AMAZON_EMAIL'))
             email_field.send_keys(Keys.RETURN)
             time.sleep(3)
             password_field = browser.find_element(By.ID, "ap_password")
-            password_field.send_keys("mypassword")
+            password_field.send_keys(os.getenv('AMAZON_PASSWORD'))
             password_field.send_keys(Keys.RETURN)
             time.sleep(5)
         page_number = 1
@@ -327,6 +338,7 @@ def get_product_data():
     data = request.get_json()
     product_link = data.get("product_link")
     reviews = scrape_product_reviews(product_link)
+    gemini_suggestions = analyze_with_gemini(reviews)
     columns = ["Name", "Rating", "Title", "Country", "Date", "Comment"]
     df = pd.DataFrame(reviews, columns=columns)
     df['Sentiment'] = df.apply(vader_sentiment_analysis, axis=1)
@@ -364,7 +376,8 @@ def get_product_data():
     return jsonify({
         "message": result,
         "sentiment_trend": sentiment_chart_data,
-        "user_engagement": user_engagement
+        "user_engagement": user_engagement,
+        "gemini_suggestions": gemini_suggestions
     })
 
 if __name__ == '__main__':
